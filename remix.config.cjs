@@ -4,15 +4,12 @@ const postcss = require('postcss');
 module.exports = {
   ignoredRouteFiles: ["**/.*"],
   serverModuleFormat: "esm",
-  // Change this to static for GitHub Pages
   serverBuildTarget: "static",
   tailwind: true,
   postcss: true,
-  // Configure static files directory for GitHub Pages
   publicPath: "/steelthumb-www/build/",
   assetsBuildDirectory: "public/build",
   serverBuildPath: "build/index.js",
-  // Add this for GitHub Pages
   basePath: "/steelthumb-www",
   future: {
     v3_fetcherPersist: true,
