@@ -1,8 +1,12 @@
+const postcss = require('postcss');
+
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
   ignoredRouteFiles: ["**/.*"],
   serverModuleFormat: "esm",
   serverBuildTarget: "node-cjs",
+  tailwind: true,
+  postcss: true,
   // Configure static files directory
   publicPath: "/steelthumb-www/build/",
   assetsBuildDirectory: "public/build",
