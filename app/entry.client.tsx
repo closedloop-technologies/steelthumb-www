@@ -8,9 +8,14 @@ import { HydratedRouter } from "react-router/dom";
 import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
 
+const appElement = document.getElementById("app");
+if (!appElement) {
+  throw new Error("No #app element found");
+}
+
 startTransition(() => {
   hydrateRoot(
-    document.querySelector("#app")!,
+    appElement,
     <StrictMode>
       <HydratedRouter />
     </StrictMode>
