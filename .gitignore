@@ -6,3 +6,5 @@ node_modules
 
 # Public build directory
 public/build
+
+.react-router/

@@ -4,35 +4,22 @@
  * For more information, see https://remix.run/file-conventions/entry.server
  */
 
-import fs from "node:fs";
-import path from "node:path";
 
-import type { EntryContext } from "@remix-run/node";
-import { RemixServer } from "@remix-run/react";
+import type { EntryContext } from "react-router";
+import { ServerRouter } from "react-router";
 import { renderToString } from "react-dom/server";
 
 export default function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext,
+  reactRouterContext: EntryContext,
 ) {
-  const shellHtml = fs
-    .readFileSync(
-      path.join(process.cwd(), "app/index.html")
-    )
-    .toString();
-
   const appHtml = renderToString(
-    <RemixServer context={remixContext} url={request.url} />
+    <ServerRouter context={reactRouterContext} url={request.url} />
   );
 
-  const html = shellHtml.replace(
-    "<!-- Remix SPA -->",
-    appHtml
-  );
-
-  return new Response(html, {
+  return new Response(appHtml, {
     headers: { "Content-Type": "text/html" },
     status: responseStatusCode,
   });

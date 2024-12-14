@@ -3,7 +3,7 @@ const postcss = require('postcss');
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
   ignoredRouteFiles: ["**/.*"],
-  serverModuleFormat: "esm",
+  // serverModuleFormat: "esm",
   tailwind: true,
   postcss: true,
   future: {
