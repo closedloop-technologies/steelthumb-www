@@ -1,13 +1,24 @@
-import { type RouteConfig } from "@react-router/dev/routes";
-import { remixRoutesOptionAdapter } from "@react-router/remix-routes-option-adapter";
+import {
+    type RouteConfig,
+    route,
+    index,
+    layout,
+    prefix,
+} from "@react-router/dev/routes";
 
-export default remixRoutesOptionAdapter((defineRoutes) => {
-    return defineRoutes((route) => {
-        route("/", "home/route.tsx", { index: true });
-        //        route("about", "about/route.tsx");
-        //        route("", "concerts/layout.tsx", () => {
-        //            route("trending", "concerts/trending.tsx");
-        //            route(":city", "concerts/city.tsx");
-        //        });
-    });
-}) satisfies RouteConfig;
+export default [
+    index("./home.tsx"),
+    // route("about", "./about.tsx"),
+
+    // layout("./auth/layout.tsx", [
+    //     route("login", "./auth/login.tsx"),
+    //     route("register", "./auth/register.tsx"),
+    // ]),
+
+    // ...prefix("concerts", [
+    //     index("./concerts/home.tsx"),
+    //     route(":city", "./concerts/city.tsx"),
+    //     route(":city/:id", "./concerts/show.tsx"),
+    //     route("trending", "./concerts/trending.tsx"),
+    // ]),
+] satisfies RouteConfig;
