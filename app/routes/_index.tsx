@@ -10,7 +10,18 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export function ErrorBoundary({ error }: { error: unknown }) {
+  console.error('Index route error:', error);
+  return (
+    <div>
+      <h1>Error in Index Route!</h1>
+      <pre>{JSON.stringify(error, null, 2)}</pre>
+    </div>
+  );
+}
+
 export default function Index() {
+  console.log('Rendering Index');
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="container mx-auto py-8">

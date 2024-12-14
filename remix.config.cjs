@@ -4,13 +4,8 @@ const postcss = require('postcss');
 module.exports = {
   ignoredRouteFiles: ["**/.*"],
   serverModuleFormat: "esm",
-  serverBuildTarget: "static",
   tailwind: true,
   postcss: true,
-  publicPath: "/steelthumb-www/build/",
-  assetsBuildDirectory: "public/build",
-  serverBuildPath: "build/index.js",
-  basePath: "/steelthumb-www",
   future: {
     v3_fetcherPersist: true,
     v3_lazyRouteDiscovery: true,
